@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.gildedrose"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
 	mavenCentral()
@@ -35,5 +35,5 @@ java {
 }
 
 application {
-	mainClass.set("com.gildedrose.TexttestFixtureKt")
+	mainClass.set("com.gildedrose.TextTestFixtureKt")
 }

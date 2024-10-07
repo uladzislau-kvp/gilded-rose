@@ -17,6 +17,7 @@ class GildedRose(var items: List<Item>) {
                 if (item.sellIn <= 5) item.increaseQuality()
             }
             "Aged Brie" -> item.increaseQuality()
+            "Conjured Mana Cake" -> item.decreaseQuality(2)
             "Sulfuras, Hand of Ragnaros" -> Unit
             else -> item.decreaseQuality()
         }

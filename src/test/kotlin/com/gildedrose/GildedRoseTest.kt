@@ -257,7 +257,7 @@ internal class GildedRoseTest {
         val items = buildTestItems()
         val gildedRose = GildedRose(items)
 
-        (0..< 20).forEach { day ->
+        (0..<20).forEach { day ->
             log("-------- day $day --------")
             log("name, sellIn, quality")
             gildedRose.items.forEach { item ->

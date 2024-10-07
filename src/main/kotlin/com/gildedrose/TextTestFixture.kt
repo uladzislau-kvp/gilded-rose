@@ -22,7 +22,7 @@ fun main(args: Array<String>) {
         days = Integer.parseInt(args[0]) + 1
     }
 
-    (0..< days).forEach { day ->
+    (0..<days).forEach { day ->
         println("-------- day $day --------")
         println("name, sellIn, quality")
         items.forEach(::println)

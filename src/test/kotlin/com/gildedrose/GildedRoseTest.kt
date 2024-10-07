@@ -263,7 +263,7 @@ internal class GildedRoseTest {
     """.trimIndent()
 
     @Test
-    fun updateQuality() {
+    fun update() {
         log("OMGHAI!")
 
         val items = buildTestItems()
@@ -276,7 +276,7 @@ internal class GildedRoseTest {
                 log(item)
             }
             log("")
-            gildedRose.updateQuality()
+            gildedRose.update()
         }
 
         assertEquals(expectedOutput, actualOutput)

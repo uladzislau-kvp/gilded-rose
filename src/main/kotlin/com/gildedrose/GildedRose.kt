@@ -45,4 +45,3 @@ class GildedRose(var items: List<Item>) {
         this.quality = (this.quality - by).coerceAtLeast(0)
     }
 }
-

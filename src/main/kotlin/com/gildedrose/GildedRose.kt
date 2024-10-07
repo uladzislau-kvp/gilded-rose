@@ -11,23 +11,14 @@ class GildedRose(var items: List<Item>) {
 
     private fun updateQuality(item: Item) {
         when (item.name) {
-            "Sulfuras, Hand of Ragnaros" -> {
-
-            }
-
-            "Aged Brie" -> {
-                if (item.quality < 50) item.quality += 1
-            }
-
             "Backstage passes to a TAFKAL80ETC concert" -> {
-                if (item.quality < 50) item.quality += 1
-                if (item.sellIn <= 10) if (item.quality < 50) item.quality += 1
-                if (item.sellIn <= 5) if (item.quality < 50) item.quality += 1
+                item.increaseQuality()
+                if (item.sellIn <= 10) item.increaseQuality()
+                if (item.sellIn <= 5) item.increaseQuality()
             }
-
-            else -> {
-                if (item.quality > 0) item.quality -= 1
-            }
+            "Aged Brie" -> item.increaseQuality()
+            "Sulfuras, Hand of Ragnaros" -> Unit
+            else -> item.decreaseQuality()
         }
     }
 
@@ -36,9 +27,21 @@ class GildedRose(var items: List<Item>) {
     }
 
     private fun handleExpiredSellIn(item: Item) {
-        if (item.sellIn < 0) {
+        if (item.isExpired()) {
             if (item.name == "Backstage passes to a TAFKAL80ETC concert") item.quality = 0 else updateQuality(item)
         }
+    }
+
+    private fun Item.isExpired(): Boolean {
+        return this.sellIn < 0
+    }
+
+    private fun Item.increaseQuality(by: Int = 1) {
+        this.quality = (this.quality + by).coerceAtMost(50)
+    }
+
+    private fun Item.decreaseQuality(by: Int = 1) {
+        this.quality = (this.quality - by).coerceAtLeast(0)
     }
 }
 

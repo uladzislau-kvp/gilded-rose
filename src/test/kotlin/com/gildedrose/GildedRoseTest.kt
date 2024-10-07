@@ -246,18 +246,6 @@ internal class GildedRoseTest {
         Backstage passes to a TAFKAL80ETC concert, -9, 0
         Backstage passes to a TAFKAL80ETC concert, -14, 0
         Conjured Mana Cake, -16, 0
-
-        -------- day 20 --------
-        name, sellIn, quality
-        +5 Dexterity Vest, -10, 0
-        Aged Brie, -18, 38
-        Elixir of the Mongoose, -15, 0
-        Sulfuras, Hand of Ragnaros, 0, 80
-        Sulfuras, Hand of Ragnaros, -1, 80
-        Backstage passes to a TAFKAL80ETC concert, -5, 0
-        Backstage passes to a TAFKAL80ETC concert, -10, 0
-        Backstage passes to a TAFKAL80ETC concert, -15, 0
-        Conjured Mana Cake, -17, 0
         
         
     """.trimIndent()
@@ -269,7 +257,7 @@ internal class GildedRoseTest {
         val items = buildTestItems()
         val gildedRose = GildedRose(items)
 
-        (0..20).forEach { day ->
+        (0..< 20).forEach { day ->
             log("-------- day $day --------")
             log("name, sellIn, quality")
             gildedRose.items.forEach { item ->
